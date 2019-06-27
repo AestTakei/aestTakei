@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+		<title>収支情報管理メニュー</title>
+	</head>
+	
+	<body>
+			<form th:action="@{/syushi-menuNext}"  method="post">
+				<div class="style1">
+				
+				<br />
+				<br />
+				
+				<input type="submit" class="button1"  name="goSyushiReg_btn" value="◆ 収支情報を登録する ◆"><br />
+				<br />
+				
+				<input type="submit" class="button1"   name="goSyushiShow_btn" value="◆ 登録情報を確認する ◆"><br />
+				<br />
+				
+				<input type="submit" class="button1"  name="backStartMenu_btn" value="戻る"><br />
+				<br />
+					
+					
+				</div>
+			</form>
+	</body>
+	
+</html>

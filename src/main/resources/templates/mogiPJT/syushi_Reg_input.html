@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+		<title>収支情報登録</title>
+	</head>
+	
+	<body>
+		<form th:action="@{/syushi-conf}" th:object="${SyushiForm}" method="post">
+			<div class="style1">
+				<h1><strong>収支情報登録</strong></h1>
+				各項目を入力して、登録内容確認ボタンを押してください。<br />
+				<br />
+
+				
+			<table  style="text-align:center; margin: 0px auto;">
+				<tr align="left">
+					<td><strong>■ 購入日</strong></td>
+					<td>
+						<select th:field="*{buyYear}" >
+							<option value=""></option>
+							<option th:each=" item : *{bYearList}"  th:value="${item}"  th:text="${item}"/>
+						</select>
+						<strong>年</strong>
+						
+						<select th:field="*{buyMonth}" >
+							<option value=""></option>
+							<option th:each=" item : *{bMonthList}"  th:value="${item}"  th:text="${item}"/>
+						</select>
+						<strong>月</strong>
+						
+						<select th:field="*{buyDay}" >
+							<option value=""></option>
+							<option th:each=" item : *{bDayList}"  th:value="${item}"  th:text="${item}"/>
+						</select>
+						<strong>日</strong>
+					
+					</td>	
+				</tr>
+				
+				<tr align="left">
+					<td><strong>■ 購入店舗</strong></td>
+					<td>
+						<select th:field="*{shop}" >
+							<option value=""></option>
+							<option th:each=" item : *{TenpoList}"  th:value="${item.shopId}"  th:text="${item.shopName}"/>
+						</select>
+					</td>
+				</tr>
+				
+				<tr align="left">
+					<td><strong>■ 購入品カテゴリ</strong></td>
+					<td>
+						<select th:field="*{category}" >
+							<option value=""></option>
+							<option th:each=" item : *{categoryMap}"  th:value="${item.key}" th:text="${item.value}" >
+						</select>
+					</td>
+				</tr>
+				
+				<tr align="left">
+					<td><strong>■ 値段</strong></td>
+					<td>
+						<input type="text" th:field="*{price}" maxlength="7">
+						<strong>円</strong>
+					</td>
+				</tr>
+				
+				<tr></tr>
+				<tr></tr>
+								
+
+				<tr align="left"><td><strong>■ ポイント情報</strong></td></tr>
+				
+				<tr align="left">
+					<td><strong>  ・ 利用カード</strong></td>
+					<td>
+						<select th:field="*{usePointCard}" >
+							<option value=""></option>
+							<option th:each=" item : *{cardMap}"  th:value="${item.key}"  th:text="${item.value}"/>
+						</select>
+					</td>
+				</tr>
+				
+				<tr align="left">
+					<td><strong>  ・ 今回獲得ポイント</strong></td>
+
+					<td>
+					<div th:if="*{pointSet} == null">
+						<input type="text" th:field="*{plusPoint}" maxlength="6" >
+						<strong>Pt</strong>
+					</div>
+
+					<div th:if="*{pointSet} != null">
+							<input type="text" id="plusPoint" name="plusPoint" th:value="*{pointSet}">
+							<strong>Pt</strong>
+					</div>
+					</td>
+					
+
+					
+					<td>
+						<input type="submit" class="button3"  name="getPoint_btn" value="獲得ポイント算出"><br />
+					</td>
+				</tr>
+				
+				<tr align="left">
+					<td><strong>・ 今回消費ポイント</strong></td>
+					<td>
+						<input type="text" th:field="*{minusPoint}" maxlength="6">
+						<strong>Pt</strong>
+					</td>
+				</tr>
+
+			</table>
+				
+				<br />
+				<input type="submit" class="button1" name="goSyushiConf_btn" value="◆ 登録内容確認 ◆"><br />
+				<br />
+				
+				<input type="submit" class="button1" 	name="backSyushiMenu_btn" value="戻る">
+				<br />
+			
+			</div>
+			
+		</form>
+	</body>
+	
+
+</html>

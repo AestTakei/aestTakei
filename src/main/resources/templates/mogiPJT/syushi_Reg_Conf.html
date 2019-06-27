@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+		<title>登録内容確認</title>
+	</head>
+	
+	<body>
+		<form th:action="@{/syushi-end}" th:object="${SyushiForm}" method="post">
+			<div class="style1">
+				<h1><strong>登録内容確認</strong></h1>
+							登録内容を確認して、登録ボタンを押してください。<br />
+				<br />
+			
+			<div class="style3">
+			<table  style="text-align:center; margin: 0px auto;">
+			
+				<tr align="left">
+					<td>■ 購入日</td>
+					<td>
+						<span th:text="*{buyYear}"></span>年
+						<span th:text="*{buyMonth}"></span>月
+						<span th:text="*{buyDay}"></span>日
+					</td>
+				</tr>
+				
+				<tr align="left">
+					<td>■ 購入店舗</td>
+					<td>
+						<span th:text="*{shopConf}"></span>
+					</td>
+
+				</tr>
+				
+				<tr align="left">
+					<td>■ 購入品カテゴリ</td>
+					<td><span th:text="*{categoryConf}"></span></td>
+				</tr>
+				
+				<tr align="left">
+					<td>■ 値段</td>
+					<td><span th:text="*{price}"></span>円</td>
+				</tr>
+				
+				<tr></tr>
+				<tr></tr>
+								
+				<tr align="left"><td>■ ポイント情報</td></tr>
+				
+				<tr align="left">
+					<td>・ 利用カード</td>
+					<td><span th:text="*{cardConf}"></span></td>
+				</tr>
+				
+				<tr align="left">
+					<td>・ 今回獲得ポイント</td>
+					<td><span th:text="*{plusPoint}"></span></td>
+				</tr>
+				
+				<tr align="left">
+					<td>・ 今回消費ポイント</td>
+					<td><span th:text="*{minusPoint}"></span></td>
+				</tr>
+				
+			</table>
+			</div>
+				<br />
+				<input type="submit" class="button1"  name="goSyushiEnd_btn" value="◆ 登録 ◆"><br />
+				<br />
+				
+				<input type="submit" class="button1"  	name="backSyushiInput_btn" value="戻る">
+				
+
+			</div>
+		</form>
+	</body>
+	
+</html>

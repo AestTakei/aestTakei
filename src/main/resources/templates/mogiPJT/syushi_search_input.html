@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+		<title>収支情報照会</title>
+	</head>
+	
+	<body>
+		<form th:action="@{/search-result}" th:object="${SyushiForm}" method="post">
+			<div class="style1">
+				<h1><strong>収支情報照会画面</strong></h1>
+				絞り込み条件を選択して、一覧表示ボタンを押してください。<br />
+				<br />
+			
+		<table  style="text-align:center; margin: 0px auto;">
+			<tr align="left"><td>■登録日時で絞り込む</td></tr>
+			<tr align="left">
+					<td>
+						<select th:field="*{searchDate}" >
+							<option value=""></option>
+							<option th:each=" item : *{searchDateList}"  th:value="${item.inpDate}"  th:text="${item.inpDate}"/>
+						</select>
+					</td>
+			</tr>
+			
+			<tr align="left"><td>■購入店舗で絞り込む</td></tr>
+			<tr align="left">
+					<td>
+						<select th:field="*{searchShop}" >
+							<option value=""></option>
+							<option th:each=" item : *{searchTenpoList}"  th:value="${item.shopId}"  th:text="${item.shopName}"/>
+						</select>
+					</td>
+			</tr>
+		</table>
+						
+			<br />
+			<input type="submit" class="button1" name="serch_goResult_btn" value="◆一覧表示◆" ><br />
+			<br />
+			<input type="submit" class="button1" name="search_backMenu_btn" value="戻る" ><br />
+
+		</div>
+		
+		</form>
+	</body>
+	
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+		<title>登録完了</title>
+	</head>
+	
+	<body>
+		<form th:action="@{/syushi-endNext}" th:object="${SyushiForm}" method="post">
+			<div style="text-align:center;">
+			
+				<h1 ><strong>登録完了</strong></h1>
+				収支情報登録を完了しました。<br />
+	
+				<br />
+				<input type="submit" class="button1" name="goSyushiReg_btn" value="収支情報登録画面に戻る">
+				
+			</div>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color:#e1f2e7;
+}
+
+input.button1{
+	padding: 7px 50px;
+	border-color:#727272;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	 border-radius: 5px;
+	 font-size: large;
+	 border-width: thin;
+	text-align:bottom;
+}
+
+input.button2{
+	padding: 7px 15px;
+	border-color:#727272;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	 border-radius: 5px;
+	 font-size: large;
+	 border-width: thin;
+	text-align:bottom;
+}
+
+input.button3{
+	background-color:#faf3d6;
+	padding: 0px 25px;
+	border-color:#444444;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	 border-radius: 5px;
+	 font-weight: bold;
+	 border-width: thin;
+	text-align:bottom;
+}
+
+table.style4{
+	border="1";
+	margin: 0px auto;
+    text-align: center;
+}
+
+div.style1{
+	margin: 0 auto;
+    text-align: center;
+}
+
+div.style2{
+	display: inline-block;
+	text-align: left;
+}
+
+div.style3{
+	background-color:#fafafa;
+	text-align: center;
+}
+
+div.style4{
+    background-color:#fafafa;
+}

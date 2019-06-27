@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+        "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+        <mapper namespace="com.example.persistence.SyushiRegMapper">
+        
+            <insert id="insert">
+            
+            INSERT INTO syushi_data(BUY_DATE,SHOP_ID,CATEGORY,PRICE,CARD_ID,PLUS_POINT,MINUS_POINT,USER_ID,INP_DATE,UPD_DATE)
+            VALUES(#{buyDateTotal},#{shop},#{category},#{price},#{usePointCard},#{plusPoint},#{minusPoint},#{user_id},CURRENT_DATE(),NOW())
+            
+            </insert>
+            
+            <update id = "updPoint">
+            
+            UPDATE card_data SET HAVE_POINT = HAVE_POINT + #{plusPoint} - #{minusPoint} WHERE CARD_ID = #{usePointCard}
+            
+            </update>
+            
+            <select id="getshop"  resultType="com.example.domain.SyushiInfo">
+	 			SELECT SHOP_ID,SHOP_NAME FROM shop_data
+	 		</select>
+	 			
+            <select id="getcard"  resultType="com.example.domain.SyushiInfo">
+	 			SELECT CARD_ID,USE_CARD FROM card_data WHERE USER_ID = #{user_id}
+	 		</select>
+
+            <select id="getback"  resultType="com.example.domain.SyushiInfo">
+	 			SELECT BACK_MONEY,BACK_NUMBER FROM card_data WHERE CARD_ID = #{usePointCard}
+	 		</select>
+	 		
+
+	 		<select id="syushisearch"  resultType="com.example.domain.SyushiInfo">
+	 			SELECT SYUSHI_ID,BUY_DATE,SHOP_ID,CATEGORY,PRICE,CARD_ID,PLUS_POINT,MINUS_POINT,USER_ID,INP_DATE FROM syushi_data 
+	 			<where>
+	 				<if test = "searchDate != '' ">
+	 					AND INP_DATE = #{searchDate}
+	 				</if>
+	 				
+	 				<if test = "searchShop != '' ">
+	 					AND SHOP_ID = #{searchShop}
+	 				</if>
+	 				
+	 				<if test = "user_id != '' ">
+	 					AND USER_ID = #{user_id}
+	 				</if>
+	 			
+	 			</where>
+	 		</select>
+	 		
+	 		<select id="syushigetdate"  resultType="com.example.domain.SyushiInfo">
+	 			SELECT DISTINCT INP_DATE FROM syushi_data WHERE USER_ID = #{user_id}
+	 		</select>
+	 		
+	 		
+	 		 <select id="syushigetcard"  resultType="com.example.domain.SyushiInfo">
+	 			SELECT CARD_ID,USE_CARD FROM card_data WHERE USER_ID = #{user_id}
+	 		</select>
+	 		
+	 		
+	 		
+	 		
+	 		
+	 			
+		</mapper>

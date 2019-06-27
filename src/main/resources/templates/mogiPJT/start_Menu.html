@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+		<title>【収支・ポイント管理】初期メニュー</title>
+
+	</head>
+	
+	<body>
+		<form th:action="@{/syushi-menu}"  method="post">
+			<div class="style1">
+				<h1><strong>収支・ポイント管理　メニュー</strong></h1>
+				<strong>使用したい機能のボタンを押してください。</strong><br />
+				<br />
+
+			
+				<input type="submit"  class="button1" name="goSyushiMenu_btn" value="◆ 収支情報登録・照会 ◆"><br />
+				<p class="style2"> 新しい収支情報の登録と、登録情報の一覧表示ができます。</p><br />		
+				<br />
+
+				
+				<input type="submit"  class="button1" name="goShopMenu_btn" value="◆ 店舗情報登録・照会 ◆"><br />
+				<p class="style2">店舗情報の登録と、登録情報の一覧表示ができます。</p><br />
+				<br />
+				
+				<input type="submit" 	class="button2" name="goCardMenu_btn" value="◆ ポイントカード情報登録・照会 ◆"><br />
+				<p class="style2">ポイントカード情報の登録と、登録情報の一覧表示ができます。</p><br />
+				<br />
+				
+			</div>
+
+				
+
+		</form>
+	</body>
+	
+
+</html>
